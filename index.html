@@ -16,7 +16,7 @@
 
 <body>
     <header>
-        <a href="#">View high scores</a>
+        <!-- <a href="#">View high scores</a> -->
         <p id="countdown"></p>
     </header>
     <main>
@@ -42,9 +42,9 @@
                     🎉Congradulations!🎉
                 </h2>
                 <p id="userScore"></p>
-                <form action="">
-                    <label for="name">Username: </label>
-                    <input type="text" id="username">
+                <form id="user-form">
+                    <label for="username-input">Username: </label>
+                    <input type="text" id="username-input">
                     <input type="submit">
                 </form>
             </div>
@@ -53,13 +53,13 @@
             <h2>
                 Scoreboard
             </h2>
-            <p id="scoreboard"></p>
-            <button>
+            <ul id="user-list"></p>
+            <!-- <button>
                 Home page
             </button>
             <button id="clearButton">
                 Clear scores
-            </button>
+            </button> -->
         </section>
     </main>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>

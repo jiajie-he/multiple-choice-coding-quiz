@@ -38,11 +38,7 @@ var isDone = false
 
 
 // scoreboard
-var scoreboard = [
-    {
-        
-    }
-]
+var scoreboard = []
 
 var startButton = document.querySelector(`#startQuizBtn`)
 var initialPage = document.querySelector(`#initialPage`)
@@ -50,7 +46,7 @@ var quizPage = document.querySelector(`#quizPage`)
 var donePage = document.querySelector(`#donePage`)
 var scorePage = document.querySelector(`#scorePage`)
 var multiChoice = document.querySelector(`.multipleChoice`)
-var userScore = document.querySelector(`#userScore`)
+
 
 // start quiz when button is clicked
 
@@ -161,20 +157,76 @@ function quizDone() {
     donePage.setAttribute(`class`, ``)
 }
 
-//TODO: store username and score to local storage
-// score
+// store username and score to local storage
 
 function recordTime() {
     localStorage.setItem("savedScore", timeLeft)
     userScore.textContent = `Your score is ` + timeLeft
 }
 
+var userScore = document.querySelector(`#userScore`)
+var username = document.querySelector(`#username-input`)
+var userForm = document.querySelector(`#user-form`)
+var userList = document.querySelector(`#user-list`)
 
-//TODO: can reset score with a reset button
-var clearButton = document.querySelector(`#clearButton`)
+// render a new list each time using a loop
+function renderUserList () {
+    userList.innerHTML = ``;
+    
+    for (let u = 0; u < scoreboard.length; u++) {
+        var user = scoreboard[u]
 
-function clearScore() {
-score = ``
+        var li = document.createElement(`li`);
+        li.innerHTML = user
+        li.setAttribute(`data-user`, u);
+
+        userList.appendChild(li);
+    }
 }
 
-clearButton.addEventListener(`click`, clearScore);
+// run when page load
+function initRun() {
+
+    var savedUser = JSON.parse(localStorage.getItem(`scoreboard` + `savedScore`));
+
+    if (savedUser !== null) {
+        scoreboard = savedUser;
+    }
+
+    renderUserList();
+}
+
+function storeUser() {
+    localStorage.setItem(`scoreboard`, JSON.stringify(scoreboard + timeLeft))
+}
+
+userForm.addEventListener(`submit`, function(event) {
+    event.preventDefault();
+    
+    var userInput = username.value.trim();
+
+    if (userInput === ``) {
+        return;
+    }
+
+    scoreboard.push(userInput + timeLeft);
+    username.value = ``;
+
+    storeUser();
+    renderUserList();
+    donePage.setAttribute(`class`, `hidden`)
+    scorePage.setAttribute(`class`, ``)
+
+})
+
+initRun();
+
+
+// can reset score with a reset button
+// var clearButton = document.querySelector(`#clearButton`)
+
+// function clearScore() {
+// score = ``
+// }
+
+// clearButton.addEventListener(`click`, clearScore);
