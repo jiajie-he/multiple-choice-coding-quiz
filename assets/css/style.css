@@ -23,7 +23,7 @@ main {
     text-align: center;
 }
 
-main h1 {
+h1 {
     font-family: 'Source Code Pro', monospace;
     font-size: 300%;
     padding: 20px;
@@ -32,6 +32,7 @@ main h1 {
 main section p {
     font-size: 20px;
     line-height: 1.5;
+    margin: 20px auto;
 }
 
 main section button {
@@ -46,13 +47,14 @@ main section button {
 main section h2 {
     padding: 20px;
     font-size: 200%;
+    margin: 20px auto;
 }
 
 .multipleChoice {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items:center;
+    width: 50%;
+    margin: 0 auto;
 }
 
 a:hover{
@@ -61,4 +63,8 @@ a:hover{
 
 main section button:hover {
     background-color: var(--secondary);
+}
+
+.hidden {
+    display: none;
 }

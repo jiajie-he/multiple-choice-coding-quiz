@@ -17,126 +17,39 @@
 <body>
     <header>
         <a href="#">View high scores</a>
-        <p id="countdown">Time: </p>
+        <p id="countdown"></p>
     </header>
     <main>
-        <h1>Multiple Choice Coding Quiz</h1>
-        <section>
+        <section id="initialPage" >
+            <h1>Multiple Choice Coding Quiz</h1>
             <p>
                 Goal: answer all the questions within the time limit.<br>
                 *Incorrect answers will incur 10 second penality.*
             </p>
-            <button id="startQuiz">
+            <button id="startQuizBtn">
                 Start Quiz
             </button>
         </section>
-        <section>
-            <h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quam id quisquam quasi.
-            </h2>
-            <div class="multipleChoice">
-                <button>
-                    1. JavaScript
-                </button>
-                <button>
-                    2. JavaScript
-                </button>
-                <button>
-                    3. JavaScript
-                </button>
-                <button>
-                    4. JavaScript
-                </button>
+        <section id="quizPage" class="hidden">
+            <div>
+                <h2 id="questions"></h2>
+                <div class="multipleChoice"></div>
             </div>
         </section>
-        <section>
-            <h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quam id quisquam quasi.
-            </h2>
-            <div class="multipleChoice">
-                <button>
-                    1. JavaScript
-                </button>
-                <button>
-                    2. JavaScript
-                </button>
-                <button>
-                    3. JavaScript
-                </button>
-                <button>
-                    4. JavaScript
-                </button>
+        <section id="donePage" class="hidden">
+            <div>
+                <h2>
+                    🎉Congradulations!🎉
+                </h2>
+                <p id="userScore"></p>
+                <form action="">
+                    <label for="name">Username: </label>
+                    <input type="text" id="username">
+                    <input type="submit">
+                </form>
             </div>
         </section>
-        <section>
-            <h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quam id quisquam quasi.
-            </h2>
-            <div class="multipleChoice">
-                <button>
-                    1. JavaScript
-                </button>
-                <button>
-                    2. JavaScript
-                </button>
-                <button>
-                    3. JavaScript
-                </button>
-                <button>
-                    4. JavaScript
-                </button>
-            </div>
-        </section>
-        <section>
-            <h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quam id quisquam quasi.
-            </h2>
-            <div class="multipleChoice">
-                <button>
-                    1. JavaScript
-                </button>
-                <button>
-                    2. JavaScript
-                </button>
-                <button>
-                    3. JavaScript
-                </button>
-                <button>
-                    4. JavaScript
-                </button>
-            </div>
-        </section>
-        <section>
-            <h2>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt, quam id quisquam quasi.
-            </h2>
-            <div class="multipleChoice">
-                <button>
-                    1. JavaScript
-                </button>
-                <button>
-                    2. JavaScript
-                </button>
-                <button>
-                    3. JavaScript
-                </button>
-                <button>
-                    4. JavaScript
-                </button>
-            </div>
-        </section>
-        <section>
-            <h2>
-                🎉Congradulations!🎉
-            </h2>
-            <p id="userScore"></p>
-            <form action="">
-                <label for="name">Username: </label>
-                <input type="text" id="username">
-                <input type="submit">
-            </form>
-        </section>
-        <section>
+        <section id="scorePage" class="hidden">
             <h2>
                 Scoreboard
             </h2>
@@ -144,11 +57,12 @@
             <button>
                 Home page
             </button>
-            <button>
+            <button id="clearButton">
                 Clear scores
             </button>
         </section>
     </main>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="./assets/js/script.js"></script>
 </body>
 
